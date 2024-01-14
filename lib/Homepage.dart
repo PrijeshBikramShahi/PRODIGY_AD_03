@@ -1,6 +1,4 @@
 import 'dart:async';
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:tiempo_tracker/utils/my_button.dart';
 
@@ -18,6 +16,7 @@ class _HomePageState extends State<HomePage> {
       "https://images.unsplash.com/photo-1614292253389-bd2c1f89cd0e?q=80&w=3174&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
   @override
   void initState() {
+    // ignore: todo
     // TODO: implement initState
 
     stopWatch = Stopwatch();
@@ -69,27 +68,31 @@ class _HomePageState extends State<HomePage> {
         ),
         child: Scaffold(
           appBar: AppBar(
+            toolbarHeight: 80,
             backgroundColor: Colors.transparent,
-            title: const Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  "Tiempo",
-                  style: TextStyle(
-                    fontSize: 40,
-                    color: Color.fromARGB(255, 194, 53, 53),
-                    fontWeight: FontWeight.w700,
+            title: Padding(
+              padding: const EdgeInsets.only(top: 20.0),
+              child: const Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "Tiempo",
+                    style: TextStyle(
+                      fontSize: 40,
+                      color: Color.fromARGB(255, 194, 53, 53),
+                      fontWeight: FontWeight.w700,
+                    ),
                   ),
-                ),
-                Text(
-                  "Tracker",
-                  style: TextStyle(
-                    fontSize: 40,
-                    color: Colors.white,
-                    fontWeight: FontWeight.w700,
+                  Text(
+                    "Tracker",
+                    style: TextStyle(
+                      fontSize: 40,
+                      color: Colors.white,
+                      fontWeight: FontWeight.w700,
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
           backgroundColor: Colors.black.withOpacity(0.4),
@@ -118,19 +121,19 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               const SizedBox(
-                height: 30,
+                height: 0,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   MyButton(
                     onButtonPressed: handleStartStop,
-                    buttonColor: Colors.transparent,
+                    buttonColor: Colors.black.withOpacity(0.2),
                     icons: stopWatch.isRunning ? Icons.pause : Icons.play_arrow,
                   ),
                   MyButton(
                     onButtonPressed: resetButtonClicked,
-                    buttonColor: Colors.transparent,
+                    buttonColor: Colors.black.withOpacity(0.2),
                     icons: Icons.restart_alt_rounded,
                   ),
                 ],
